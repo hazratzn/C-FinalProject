@@ -28,9 +28,10 @@ namespace Service.Services
             throw new NotImplementedException();
         }
 
-        public Company Get(Predicate<Company> filter)
+        public Company GetById(int id)
         {
-            throw new NotImplementedException();
+            return _companyRepository.Get(m => m.Id == id);
+            
         }
 
         public List<Company> GetAll(Predicate<Company> filter)
