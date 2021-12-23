@@ -10,13 +10,17 @@ namespace Service.Services
     public class CompanyService : ICompanyService
     {
         private CompanyRepository _companyRepository;
+        private int count { get; set; }
         public CompanyService()
         {
             _companyRepository = new CompanyRepository();
         }
         public Company Create(Company model)
         {
-            throw new NotImplementedException();
+            model.Id = count;
+            _companyRepository.Create(model);
+            count++;
+            return model;
         }
 
         public void Delete(Company model)

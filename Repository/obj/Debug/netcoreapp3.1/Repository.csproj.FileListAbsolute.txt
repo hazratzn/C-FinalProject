@@ -1,0 +1,13 @@
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\bin\Debug\netcoreapp3.1\Repository.deps.json
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\bin\Debug\netcoreapp3.1\Repository.dll
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\bin\Debug\netcoreapp3.1\Repository.pdb
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\obj\Debug\netcoreapp3.1\Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CopyComplete
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\obj\Debug\netcoreapp3.1\Repository.dll
+C:\Users\ASUS\Desktop\ConsoleApp\CompanyApplication\Repository\obj\Debug\netcoreapp3.1\Repository.pdb
