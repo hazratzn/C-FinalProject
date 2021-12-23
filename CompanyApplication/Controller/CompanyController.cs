@@ -10,6 +10,10 @@ namespace CompanyApplication.Controller
     public class CompanyController
     {
         private CompanyService _companyservice { get; }
+        public CompanyController()
+        {
+            _companyservice = new CompanyService();
+        }
         public void Create()
         {
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company name : ");
@@ -36,7 +40,7 @@ namespace CompanyApplication.Controller
         public void GetById()
         {
             Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id : ");
-        EnterId: string companyId = Console.ReadLine();
+            EnterId: string companyId = Console.ReadLine();
             int id;
 
             bool isIdTrue = int.TryParse(companyId, out id);
@@ -47,7 +51,7 @@ namespace CompanyApplication.Controller
 
                 if (companydata == null)
                 {
-                    Helper.WriteToConsole(ConsoleColor.Red, "Company not found");
+                    Helper.WriteToConsole(ConsoleColor.Red, "Add company id ");
                     goto EnterId;
                 }
                 else
@@ -60,6 +64,55 @@ namespace CompanyApplication.Controller
                 Helper.WriteToConsole(ConsoleColor.Red, "Try again id");
                 goto EnterId;
             }
+        }
+
+        public void Delete()
+        {
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Not found Company : ");
+            EnterId: string companyId = Console.ReadLine();
+            
+            int id; 
+
+            bool isIdTrue = int.TryParse(companyId, out id);
+
+            if (isIdTrue)
+            {
+                var companydata = _companyservice.GetById(id);
+
+                if (companydata == null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, " Company not found ");
+                    goto EnterId;
+                }
+                else
+                {
+                    _companyservice.Delete(companydata);
+                    Helper.WriteToConsole(ConsoleColor.Red, "Company deleted");
+                }
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Try again id");
+                goto EnterId;
+            }
+        }
+
+        public void GetAll()
+        {
+            var companies = _companyservice.GetAll();
+
+            foreach (var item in companies)
+            {
+
+                Helper.WriteToConsole(ConsoleColor.Green, $"{item.Id } - {item.Name} - {item.Address}");
+            }
+        }
+
+        public void GetAllByName()
+        {
+            
+
+            
         }
     }
 }

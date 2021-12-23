@@ -23,9 +23,10 @@ namespace Service.Services
             return model;
         }
 
-        public void Delete(Company model)
+        public void Delete(Company company)
         {
-            throw new NotImplementedException();
+            
+            _companyRepository.Delete(company);
         }
 
         public Company GetById(int id)
@@ -34,14 +35,19 @@ namespace Service.Services
             
         }
 
-        public List<Company> GetAll(Predicate<Company> filter)
+        public List<Company> GetAllByName(string name)
         {
-            throw new NotImplementedException();
+            return _companyRepository.GetAll(m=>m.Name==name);
         }
 
         public Company Update(int id, Company model)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Company> GetAll()
+        {
+            return _companyRepository.GetAll(null);
         }
     }
 }

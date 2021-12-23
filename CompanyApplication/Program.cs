@@ -11,12 +11,12 @@ namespace CompanyApplication
         
         static void Main(string[] args)
         {
-            CompanyController companyController = new CompanyController();
+            
 
             Helper.WriteToConsole(ConsoleColor.Magenta,  "Welcome");
             Helper.WriteToConsole(ConsoleColor.Blue, "Select Options");
-            
 
+            CompanyController companyController = new CompanyController();
 
 
             while (true)
@@ -41,7 +41,8 @@ namespace CompanyApplication
                         case 2:
                             break;
 
-                        case 3:
+                        case (int)MyEnums.Menus.DeleteCompany:
+                            companyController.Delete();
                             break;
 
                         case(int)MyEnums.Menus.GetCompanyById:
@@ -49,6 +50,9 @@ namespace CompanyApplication
                             break;
 
                         case 5:
+                            break;
+                        case (int)MyEnums.Menus.GetAllCompany:
+                            companyController.GetAll();
                             break;
                     }
                 }
