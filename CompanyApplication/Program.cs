@@ -8,7 +8,8 @@ namespace CompanyApplication
 {
     class Program
     {
-        
+        public static object employeeController;
+
         static void Main(string[] args)
         {
             
@@ -17,6 +18,7 @@ namespace CompanyApplication
             Helper.WriteToConsole(ConsoleColor.Blue, "Please select your options");
 
             CompanyController companyController = new CompanyController();
+            EmployeeController employeeController = new EmployeeController();
 
 
             while (true)
@@ -55,6 +57,10 @@ namespace CompanyApplication
                             break;
                         case (int)MyEnums.Menus.GetAllCompany:
                             companyController.GetAll();
+                            break;
+                        
+                        case (int)MyEnums.Menus.CreateEmployee:
+                            employeeController.Create();
                             break;
                     }
                 }
