@@ -52,7 +52,7 @@ namespace CompanyApplication.Controller
                 if (companydata == null)
                 {
                     Helper.WriteToConsole(ConsoleColor.Red, "Add company id ");
-                    goto EnterId;
+                    
                 }
                 else
                 {
@@ -110,9 +110,75 @@ namespace CompanyApplication.Controller
 
         public void GetAllByName()
         {
-            
 
-            
+            Helper.WriteToConsole(ConsoleColor.Blue, "Add Company Name: ");
+            EnterCompanyName:
+            string companyName = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(companyName))
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Try Company Name again");
+                goto EnterCompanyName;
+            }
+            else
+            {
+                var companyNames = _companyservice.GetAll();
+                foreach (var item in companyNames)
+                {
+                    if (item.Name != companyName)
+                    {
+                        Helper.WriteToConsole(ConsoleColor.Red, "Company not found try again");
+                        goto EnterCompanyName;
+                    }
+                    else
+                    {
+                        Helper.WriteToConsole(ConsoleColor.Green, $"{item.Id} - {item.Name} - {item.Address}");
+
+                    }
+                
+                }
+
+
+
+            }
+
+        }
+
+
+        public void Update()
+        {
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company id : ");
+            EnterId: string companyId = Console.ReadLine();
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company name : ");
+            EnterName: string newName = Console.ReadLine();
+            Helper.WriteToConsole(ConsoleColor.Cyan, "Add company address name : ");
+            string newAddress = Console.ReadLine();
+            int id;
+            bool isIdTrue = int.TryParse(companyId, out id);
+
+            if (isIdTrue)
+            {
+                if (string.IsNullOrEmpty(newName) || string.IsNullOrEmpty(newAddress))
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "Try Name and Address again");
+                    goto EnterName;
+                }
+                else
+                {
+                    Company company = new Company
+                    {
+                        Name = newName,
+                        Address = newAddress,
+                    };
+                    var newCompany = _companyservice.Update(id, company);
+                    Helper.WriteToConsole(ConsoleColor.Green, $"{newCompany.Id} - {newCompany.Name} - {newCompany.Address}");
+                }
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Try id again");
+                goto EnterId;
+            }
         }
     }
 }

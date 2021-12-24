@@ -13,8 +13,8 @@ namespace CompanyApplication
         {
             
 
-            Helper.WriteToConsole(ConsoleColor.Magenta,  "Welcome");
-            Helper.WriteToConsole(ConsoleColor.Blue, "Select Options");
+            Helper.WriteToConsole(ConsoleColor.Magenta,  "Welcome Cavid Bashirov");
+            Helper.WriteToConsole(ConsoleColor.Blue, "Please select your options");
 
             CompanyController companyController = new CompanyController();
 
@@ -38,7 +38,8 @@ namespace CompanyApplication
                             companyController.Create();
                             break;
 
-                        case 2:
+                        case (int)MyEnums.Menus.UpdateCompany:
+                            companyController.Update();
                             break;
 
                         case (int)MyEnums.Menus.DeleteCompany:
@@ -49,7 +50,8 @@ namespace CompanyApplication
                             companyController.GetById();
                             break;
 
-                        case 5:
+                        case (int)MyEnums.Menus.GetAllCompanyByName:
+                            companyController.GetAllByName();
                             break;
                         case (int)MyEnums.Menus.GetAllCompany:
                             companyController.GetAll();
@@ -66,9 +68,9 @@ namespace CompanyApplication
 
         private static void GetMenus()
         {
-            Helper.WriteToConsole(ConsoleColor.Cyan, "1 - Create Company, 2 - Update Company, 3 - Delete Company   , " +
-                "4 - Get Company by id, 5 - Get all Company by name,  6 - Get all Company, 7 - Create Employee  8 - Update Employee, " +
-                "9 - Get Employee by id, 10 - Delete Employee, 11 - Get Employee  by age, 12 - Get all Employee by Company id");
+            Helper.WriteToConsole(ConsoleColor.Cyan, "1-Create Company,  2-Update Company,  3-Delete Company, " +
+                "4-Get Company by id,  5-Get all Company by name,   6-Get all Company,  7-Create Employee  8-Update Employee, " +
+                "9-Get Employee by id, 10-Delete Employee, 11-Get Employee by age, 12-Get all Employee by Company id");
         }
     }
 
