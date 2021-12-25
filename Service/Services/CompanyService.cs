@@ -31,7 +31,7 @@ namespace Service.Services
 
         public Company GetById(int id)
         {
-            return _companyRepository.Get(m => m.Id == id);
+            return _companyRepository.GetById(m => m.Id == id);
             
         }
 

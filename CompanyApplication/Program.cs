@@ -8,7 +8,7 @@ namespace CompanyApplication
 {
     class Program
     {
-        public static object employeeController;
+        //public static object employeeController;
 
         static void Main(string[] args)
         {
@@ -36,6 +36,8 @@ namespace CompanyApplication
                 {
                     switch (option)
                     {
+                        //Company cases
+
                         case(int) MyEnums.Menus.CreateCompany:
                             companyController.Create();
                             break;
@@ -58,9 +60,26 @@ namespace CompanyApplication
                         case (int)MyEnums.Menus.GetAllCompany:
                             companyController.GetAll();
                             break;
-                        
+
+                        //Employee cases
+
                         case (int)MyEnums.Menus.CreateEmployee:
                             employeeController.Create();
+                            break;
+                        case (int)MyEnums.Menus.UpdateEmployee:
+                            employeeController.Update();
+                            break;
+                        case (int)MyEnums.Menus.DeleteEmployee:
+                            employeeController.Delete();
+                            break;
+                        case (int)MyEnums.Menus.GetEmployeeById:
+                            employeeController.GetById();
+                            break;
+                        case (int)MyEnums.Menus.GetEmployeeByAge:
+                            employeeController.GetByAge();
+                            break;
+                        case (int)MyEnums.Menus.GetAllEmployeeByCompanyId:
+                            employeeController.GetAllByCompanyId();
                             break;
                     }
                 }
@@ -74,13 +93,11 @@ namespace CompanyApplication
 
         private static void GetMenus()
         {
-            Helper.WriteToConsole(ConsoleColor.Cyan, "1-Create Company,  2-Update Company,  3-Delete Company, " +
-                "4-Get Company by id,  5-Get all Company by name,   6-Get all Company,  7-Create Employee  8-Update Employee, " +
-                "9-Get Employee by id, 10-Delete Employee, 11-Get Employee by age, 12-Get all Employee by Company id");
+            Helper.WriteToConsole(ConsoleColor.Cyan, "1-Create Company, 2-Update Company, 3-Delete Company, " +
+                "4-Get Company by id, 5-Get all Company by name, 6-Get all Company, 7-Create Employee  8-Update Employee, " +
+                "9-Delete Employee, 10-Get Employee By Id, 11-Get Employee by age, 12-Get all Employee by Company id");
         }
     }
 
-    internal class LibraryController
-    {
-    }
+    
 }

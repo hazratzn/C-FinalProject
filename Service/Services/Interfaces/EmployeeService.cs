@@ -9,25 +9,25 @@ namespace Service.Services.Interfaces
 {
     public class EmployeeService : IEmployeeService
     {
-        private EmployeeRepository employeeRepository { get; }
-        private CompanyRepository companyRepository { get; }
+        private EmployeeRepository _employeeRepository { get; }
+        private CompanyRepository _companyRepository { get; }
         private int count { get; set; }
 
         public EmployeeService()
         {
-            employeeRepository = new EmployeeRepository();
-            companyRepository = new CompanyRepository();
+            _employeeRepository = new EmployeeRepository();
+            _companyRepository = new CompanyRepository();
         }
         public Employee Create(Employee model, int companyId)
         {
             try
             {
-                Company company = companyRepository.Get(m => m.Id == companyId);
+                Company company = _companyRepository.GetById(m => m.Id == companyId);
                 if (company == null) throw new CustomException("Company was not found");
                 model.Company = company;
                 model.Id = count;
                 count++;
-                employeeRepository.Create(model);
+                _employeeRepository.Create(model);
                 return model;
                 
             }
@@ -38,7 +38,33 @@ namespace Service.Services.Interfaces
                 return null;
             }
         }
+        public void Delete(Employee employee)
+        {
+            _employeeRepository.Delete(employee);
+        }
 
-        
+        public Employee GetById(int id)
+        {
+            return _employeeRepository.GetById(m => m.Id == id);
+        }
+
+        public List<Employee> GetByAge(int age)
+        {
+            return _employeeRepository.GetByAge(m => m.Age == age);
+        }
+
+        public List<Employee> GetAllByCompanyId(int companyId)
+        {
+            return _employeeRepository.GetAllByCompanyId(m => m.Company.Id == companyId);
+        }
+
+        public Employee Update(int id, Employee model, Company company)
+        {
+            var employee = GetById(id);
+            model.Company = company;
+            model.Id = employee.Id;
+            _employeeRepository.Update(model, company);
+            return model;
+        }
     }
 }

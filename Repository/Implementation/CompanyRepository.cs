@@ -44,7 +44,7 @@ namespace Repository.Implementation
             }
         }
 
-        public Company Get(Predicate<Company> filter = null)
+        public Company GetById(Predicate<Company> filter = null)
         {
             return filter == null ? AppDbContext<Company>.datas[0]:AppDbContext<Company>.datas.Find(filter);
         }
@@ -58,7 +58,7 @@ namespace Repository.Implementation
         {
             try
             {
-                var company = Get(m => m.Id == entity.Id);
+                var company = GetById(m => m.Id == entity.Id);
                 if (company != null)
                 {
                     if (!string.IsNullOrEmpty(entity.Name))

@@ -122,12 +122,12 @@ namespace CompanyApplication.Controller
             }
             else
             {
-                var companyNames = _companyservice.GetAll();
+                var companyNames = _companyservice.GetAllByName(companyName);
                 foreach (var item in companyNames)
                 {
                     if (item.Name != companyName)
                     {
-                        Helper.WriteToConsole(ConsoleColor.Red, "Company not found try again");
+                        Helper.WriteToConsole(ConsoleColor.Red, "Company  found try again");
                         goto EnterCompanyName;
                     }
                     else
