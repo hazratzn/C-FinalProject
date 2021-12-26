@@ -72,6 +72,7 @@ namespace Repository.Implementation
                     if (!string.IsNullOrEmpty(entity.Surname))
                         employee.Surname = entity.Surname;
                     employee.Company = company;
+                    employee.Age = entity.Age;
 
                     return true;
                 }
